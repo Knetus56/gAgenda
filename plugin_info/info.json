@@ -2,30 +2,34 @@
 	"id": "gAgenda",
 	"name": "Google agenda",
    "description":{
-      "fr_FR":""
+      "fr_FR":"Google agenda"
    },
-   "licence":"AGPL",
-   "author":"Knetus",
-   "require":"4.2.0",
-   "category":"organization",
-   "hasDependency":false,
-   "hasOwnDeamon":false,
-   "maxDependancyInstallTime":0,
-   "changelog":"https://github.com/Knetus56/healthbox/blob/master/docs/fr_FR/changelog.md",
-   "documentation":"https://github.com/Knetus56/healthbox/blob/master/docs/fr_FR/doc.md",
-   "changelog_beta":"https://github.com/Knetus56/healthbox/tree/beta/docs/fr_FR/changelog.md",
-   "documentation_beta":"https://github.com/Knetus56/healthbox/tree/beta/docs/fr_FR/doc.md",
-   "language":[
-      "fr_FR"
-   ],
-   "compatibility":[
-      "miniplus",
-      "smart",
-      "rpi",
-      "docker",
-      "diy",
-      "mobile",
-      "v4",
-      "atlas"
-   ]
+	"licence" : "AGPL",
+	"author" : "Jeedom SAS",
+	"require" : "4.2.0",
+	"category" : "energy",
+	"hasDependency" : false,
+	"hasOwnDeamon" : false,
+	"maxDependancyInstallTime" : 0,
+	"changelog" : "https://jeedom.github.io/plugin-ecocompteur/#language#/changelog",
+	"documentation" : "https://jeedom.github.io/plugin-ecocompteur/#language#/",
+	"changelog_beta" : "https://jeedom.github.io/plugin-ecocompteur/#language#/beta/changelog",
+	"documentation_beta" : "https://jeedom.github.io/plugin-ecocompteur/#language#/beta/",
+	"link" : {
+		"forum":"Lien vers le forum",
+		"video" : "Lien vers une video"
+	},
+	"language": [
+		"fr_FR"
+	],
+	"compatibility": [
+		"miniplus",
+		"smart",
+		"rpi",
+		"docker",
+		"diy",
+		"mobile",
+		"v4",
+		"atlas"
+	]
 }
