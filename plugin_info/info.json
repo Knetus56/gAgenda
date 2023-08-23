@@ -7,18 +7,14 @@
 	"licence" : "AGPL",
 	"author" : "Jeedom SAS",
 	"require" : "4.2.0",
-	"category" : "energy",
+	"category" : "organization",
 	"hasDependency" : false,
 	"hasOwnDeamon" : false,
 	"maxDependancyInstallTime" : 0,
-	"changelog" : "https://jeedom.github.io/plugin-ecocompteur/#language#/changelog",
-	"documentation" : "https://jeedom.github.io/plugin-ecocompteur/#language#/",
-	"changelog_beta" : "https://jeedom.github.io/plugin-ecocompteur/#language#/beta/changelog",
-	"documentation_beta" : "https://jeedom.github.io/plugin-ecocompteur/#language#/beta/",
-	"link" : {
-		"forum":"Lien vers le forum",
-		"video" : "Lien vers une video"
-	},
+	"changelog" : "",
+	"documentation" : "",
+	"changelog_beta" : "",
+	"documentation_beta" : "",
 	"language": [
 		"fr_FR"
 	],
