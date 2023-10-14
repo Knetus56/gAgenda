@@ -102,6 +102,7 @@ class gAgenda extends eqLogic
         $this->checkAndUpdateCmd('eventCurrent', $this->getCurrentEvent());
         $this->checkAndUpdateCmd('eventToday', $this->getTodayEvent());
         $this->checkAndUpdateCmd('eventNextDay', $this->getNextDayEvent());
+        $this->checkAndUpdateCmd('eventYesterday', $this->getYesterdayEvent());
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -208,6 +209,28 @@ class gAgenda extends eqLogic
     }
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
     ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
+    public function getYesterdayEvent()
+    {
+        $return = '';
+        if (!is_array($this->getCache('events')) || count($this->getCache('events')) == 0) {
+            return $return;
+        }
+        $starttime = strtotime('-1 day 00:00:00');
+        $endtime = strtotime('-1 day 23:59:59');
+        foreach ($this->getCache('events') as $event) {
+            $endtime_event = strtotime($event['end']);
+            if ($endtime_event == strtotime('-1 day 00:00:00') && strtotime($event['start']) <> strtotime('-1 day 00:00:00')) {
+                $endtime_event = $endtime_event - 1;
+            }
+            if (strtotime($event['start']) <= $endtime && $endtime_event >= $starttime) {
+                $return .= $event['summary'] . ',';
+                continue;
+            }
+        }
+        return trim($return, ',');
+    }
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+    ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////  
     public function getNextDayEvent()
     {
         $return = '';
@@ -299,6 +322,20 @@ class gAgenda extends eqLogic
             $cmd->setLogicalId('eventCurrent');
             $cmd->setIsVisible(1);
             $cmd->setName(__('Evènement en cours', __FILE__));
+            $cmd->setTemplate('dashboard', 'line');
+            $cmd->setTemplate('mobile', 'line');
+        }
+        $cmd->setType('info');
+        $cmd->setSubType('string');
+        $cmd->setEqLogic_id($this->getId());
+        $cmd->save();
+        //////////////////////////////
+        $cmd = $this->getCmd(null, 'eventYesterday');
+        if (!is_object($cmd)) {
+            $cmd = new gAgendaCmd();
+            $cmd->setLogicalId('eventYesterday');
+            $cmd->setIsVisible(1);
+            $cmd->setName(__('Evènement hier', __FILE__));
             $cmd->setTemplate('dashboard', 'line');
             $cmd->setTemplate('mobile', 'line');
         }
